@@ -47,7 +47,7 @@ class StudentController {
           id,
         },
         include: {
-          user: {
+          users: {
             select: {
               id: true,
               enable: true,
@@ -56,7 +56,7 @@ class StudentController {
           },
           registrations: {
             include: {
-              classroom: true,
+              classrooms: true,
             },
           },
         },

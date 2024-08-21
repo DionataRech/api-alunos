@@ -37,20 +37,18 @@ class ClassroomController {
       const hash = generateHash(password);
 
       const newUser = await db.users.create({
-        data: { password: hash, studentId: studentFind.id },
+        data: { password: hash, student_id: studentFind.id },
       });
 
-      return res
-        .status(200)
-        .json({
-          success: true,
-          msg: "Create new user.",
-          data: {
-            id: newUser.id,
-            student: newUser.studentId,
-            enable: newUser.enable,
-          },
-        });
+      return res.status(200).json({
+        success: true,
+        msg: "Create new user.",
+        data: {
+          id: newUser.id,
+          student: newUser.student_id,
+          enable: newUser.enable,
+        },
+      });
     } catch (error) {
       console.log(error);
       return res.status(500).json({ success: false, msg: "ERROR Database." });
