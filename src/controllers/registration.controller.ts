@@ -53,8 +53,8 @@ class RegistrationController {
 
       const newRegistration = await db.registrations.create({
         data: {
-          studentId: student,
-          classroomId: classroom,
+          student_id: student,
+          classroom_id: classroom,
         },
       });
 
